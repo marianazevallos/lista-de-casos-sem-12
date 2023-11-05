@@ -1,0 +1,46 @@
+// clase main
+public class Main {
+public static void main(String[] args) {
+        
+        //objetos inicializados
+        Hora hora1 = new Hora(3, 30, 45);
+        Hora hora2 = new Hora(10, 35, 50);
+
+        //objeto no inicializado
+        Hora resultado = new Hora();
+
+        //suma
+        resultado.sumarHoras(hora1);
+        resultado.sumarHoras(hora2);
+
+        System.out.println("Hora 1:");
+        hora1.mostrarHora();
+        System.out.println("Hora 2:");
+        hora2.mostrarHora();
+        System.out.println("Resultado de la suma:");
+        resultado.mostrarHora();
+        
+}
+
+// clase Hora
+public class Hora {
+    private int horas;
+    private int minutos;
+    private int segundos;
+
+    public Hora() {
+        this.horas = 0;
+        this.minutos = 0;
+        this.segundos = 0;
+    }
+
+    public Hora(int horas, int minutos, int segundos) {
+        this.horas = horas;
+        this.minutos = minutos;
+        this.segundos = segundos;
+    }
+        
+        // metodo 1
+    public void mostrarHora() {
+        System.out.printf("%02d:%02d:%02d\n", horas, minutos, segundos);
+    }
