@@ -1,0 +1,56 @@
+public class Main
+{
+ public static void main(String[] args) {
+       
+        Cadena miCadena = new Cadena("Cadena");
+
+        System.out.println("Longitud de la cadena: " + miCadena.getLongitud());
+        System.out.println("Cadena: " + miCadena.getCadena());
+
+        int indice = 5;
+        char caracterEnIndice = miCadena.caracter(indice);
+        if (caracterEnIndice != '\0') {
+            System.out.println("Carácter en el índice " + indice + ": " + caracterEnIndice);
+        } else {
+            System.out.println("Índice fuera de rango.");
+        }
+
+        System.out.println("Visualización de la cadena:");
+        miCadena.visualizar();
+    }
+}
+
+public class Cadena {
+    private int longitud;
+    private String cadena;
+
+    public Cadena() {
+        this.longitud = 0;
+        this.cadena = "";
+    }
+
+    public Cadena(String cadena) {
+        this.longitud = cadena.length();
+        this.cadena = cadena;
+    }
+
+    public int getLongitud() {
+        return longitud;
+    }
+
+    public String getCadena() {
+        return cadena;
+    }
+
+    public char caracter(int i) {
+        if (i >= 0 && i < longitud) {
+            return cadena.charAt(i);
+        } else {
+            return '\0'; 
+        }
+    }
+
+    public void visualizar() {
+        System.out.println(cadena);
+    }
+}
