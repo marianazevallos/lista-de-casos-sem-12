@@ -1,0 +1,83 @@
+public class Empleado {
+    protected String nombre;
+    protected double salarioBase;
+
+    public Empleado(String nombre, double salarioBase) {
+        this.nombre = nombre;
+        this.salarioBase = salarioBase;
+    }
+
+    public double calcularSalario() {
+        return salarioBase;
+    }
+
+    public void despedir() {
+        System.out.println("Empleado despedido");
+    }
+
+    public void darDeAlta() {
+        System.out.println("Empleado dado de alta");
+    }
+
+    public void jubilacion() {
+        System.out.println("Empleado jubilado");
+    }
+}
+
+public class Supervisor extends Empleado {
+    private double bonoSupervisor;
+
+    public Supervisor(String nombre, double salarioBase, double bonoSupervisor) {
+        super(nombre, salarioBase);
+        this.bonoSupervisor = bonoSupervisor;
+    }
+
+    @Override
+    public double calcularSalario() {
+        return salarioBase + bonoSupervisor;
+    }
+
+    public void darAumento(double porcentaje) {
+        salarioBase += salarioBase * (porcentaje / 100);
+        System.out.println("Aumento aplicado");
+    }
+
+    public void darPrima() {
+        System.out.println("Prima otorgada");
+    }
+}
+
+public class RecursosHumanos {
+    public void accederInformacion(Empleado e) {
+        System.out.println("Acceso a información de empleado");
+    }
+
+    public void aprobarJubilacion(Empleado e) {
+        System.out.println("Jubilación aprobada para el empleado");
+    }
+}
+
+public class SUNAT {
+    public void accederInformacion(Empleado e) {
+        System.out.println("Acceso a información de empleado para revisión fiscal");
+    }
+
+    public void revisarDeclaraciones() {
+        System.out.println("Revisión de declaraciones fiscales");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Empleado empleado = new Empleado("Juan", 2000.0);
+        Supervisor supervisor = new Supervisor("Ana", 2500.0, 500.0);
+        RecursosHumanos rrhh = new RecursosHumanos();
+        SUNAT sunat = new SUNAT();
+
+        rrhh.accederInformacion(empleado);
+        rrhh.aprobarJubilacion(empleado);
+
+        sunat.accederInformacion(supervisor);
+        sunat.revisarDeclaraciones();
+    }
+}
