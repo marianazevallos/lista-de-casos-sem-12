@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class LAN {
+    private String topologia;
+    private int tamanoPaquete;
+    private List<Nodo> nodos;
+
+    public LAN() {
+        this.nodos = new ArrayList<>();
+    }
+
+    public List<Nodo> obtenerNodos() {
+        return nodos;
+    }
+
+    public void agregarNodo(Nodo nodo) {
+        nodos.add(nodo);
+    }
+
+    public void quitarNodo(Nodo nodo) {
+        nodos.remove(nodo);
+    }
+
+    public void configurarRed(String topologia) {
+        this.topologia = topologia;
+    }
+
+    public void especificarTamanoPaquete(int tamano) {
+        this.tamanoPaquete = tamano;
+    }
+
+    public void enviarPaquete(Nodo origen, Nodo destino) {
+        // Lógica para enviar un paquete de un nodo a otro
+    }
+
+    public void difundirPaquete(Nodo origen) {
+        // Lógica para difundir un paquete desde un nodo a todos los demás
+    }
+
+    public void realizarEstadisticas() {
+        // Lógica para realizar estadísticas de la LAN
+    }
+}
+
+public class Nodo {
+    private int id;
+
+    public Nodo(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+}
